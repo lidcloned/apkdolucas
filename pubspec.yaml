@@ -1,0 +1,68 @@
+name: lamafiacla
+description: 'Aplicativo LaMafia: Federação - Gerenciamento de clã tático'
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  # Firebase
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.15.3
+  cloud_firestore: ^4.13.6
+  firebase_storage: ^11.5.6
+  # Estado e armazenamento
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+  # Plugins essenciais
+  flutter_plugin_android_lifecycle: ^2.0.19
+  path_provider: ^2.1.4
+  # UI e formatação
+  intl: ^0.19.0
+  flutter_svg: ^2.0.10+1
+  # Mídia
+  cached_network_image: ^3.4.0
+  flutter_cache_manager: ^3.4.1
+  # Plugin de áudio para reprodução dos arquivos de áudio
+  audioplayers: ^5.2.1
+  # Mapas
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+  # Notificações
+  flutter_local_notifications: ^17.2.4
+  # Utilitários
+  uuid: ^4.2.1
+  permission_handler: ^11.3.1
+  connectivity_plus: ^5.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images_png/1000216621.png"  # Atualizado para o arquivo PNG correto
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/images_png/1000216621.png"  # Atualizado para o arquivo PNG correto
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images_png/
+    - assets/audio/
+    
+  fonts:
+    - family: Gothic
+      fonts:
+        - asset: assets/fonts/gothic.ttf
+    - family: Digital
+      fonts:
+        - asset: assets/fonts/digital.ttf

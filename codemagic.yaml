@@ -1,0 +1,52 @@
+workflows:
+  android-workflow:
+    name: Android Build
+    instance_type: mac_mini_m1
+    max_build_duration: 120
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Limpeza de cache
+        script: |
+          flutter clean
+          rm -rf ~/.gradle/caches/
+          rm -rf android/.gradle/
+          rm -rf build/
+      - name: Get dependencies
+        script: |
+          flutter pub get
+      - name: Build Android
+        script: |
+          flutter build apk --release
+          # Adicione a flag abaixo se ainda tiver problemas com validação de dependências
+          # flutter build apk --release --android-skip-build-dependency-validation
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+      
+  ios-workflow:
+    name: iOS Build
+    instance_type: mac_mini_m1
+    max_build_duration: 120
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Limpeza de cache
+        script: |
+          flutter clean
+          rm -rf ~/Library/Developer/Xcode/DerivedData
+          rm -rf build/
+      - name: Get dependencies
+        script: |
+          flutter pub get
+      - name: Build iOS
+        script: |
+          cd ios
+          pod install
+          cd ..
+          flutter build ios --release --no-codesign
+    artifacts:
+      - build/ios/iphoneos/Runner.app
